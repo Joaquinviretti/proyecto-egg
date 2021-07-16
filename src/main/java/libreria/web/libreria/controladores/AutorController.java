@@ -32,24 +32,24 @@ public class AutorController {
     }
 
     @GetMapping("/listado")
-    public String listado() {
-        /*  List<Autor>autores = autorServicio.listarTodos();
-        modelo.put("autores", autores);*/
+    public String listado(ModelMap modelo) {
+        List<Autor>autores = autorServicio.listarTodos();
+        modelo.put("autores", autores);
+        modelo.put("cantidad", autores.size());
         return "autores/listado.html";
     }
 
 
     @PostMapping("/cargar")
     public String cargarAutor(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido) {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
         
         try {
             autorServicio.agregarAutor(nombre, apellido);
-            modelo.put("exito", "El autor se ha añadido correctamente.");
-            return "autores/menu.html";
+            modelo.put("exito", "El autor " + nombre + " " + apellido + 
+                    " se ha añadido correctamente.");
+            return "autores/carga.html";
         } catch (ErrorServicio ex) {
-           /* modelo.put("error", ex.getMessage());*/
+            modelo.put("error", ex.getMessage());
             modelo.put("nombre", nombre);
             modelo.put("apellido", apellido);
             return "autores/carga.html";

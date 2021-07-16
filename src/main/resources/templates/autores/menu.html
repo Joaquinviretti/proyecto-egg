@@ -12,8 +12,12 @@
     </head>
 
     <body>
-        <div class="container pt-4">
-            <h1>Administración de Autores</h1>
+        <div class="container">
+            <div class="alert alert-dark w-100 mt-4" role="alert">
+                <h1>Administración de Autores</h1>
+                <hr>
+                <p>Utilice este modulo para administrar la base de datos de autores de libro.</p>
+              </div>
             <nav class="d-flex justify-content-end" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Librería</a></li>
@@ -21,18 +25,12 @@
                 </ol>
             </nav> 
 
-            <div class="alert alert-secondary" role="alert">
-                Aquí podrás agregar nuevos autores o consultar los autores existentes.
-            </div>
             <div class="d-grid mt-4 gap-2 col-4 mx-auto">
                 <a class="btn  btn-secondary" href="/autores/carga">Agregar</a>
                 <a class="btn mt-2  btn-secondary" href="/autores/listado">Ver listado</a>
             </div>
 
-            <h3 th:text="${exito}" th:if="${exito != null}"></h3>
-
         </div>
-
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

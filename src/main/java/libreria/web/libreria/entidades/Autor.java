@@ -24,7 +24,7 @@ public class Autor {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    @Column(nullable = false, columnDefinition = "TINYINT(1)")
+    private String apellido;
     private boolean baja;
 
     /**
@@ -67,6 +67,20 @@ public class Autor {
      */
     public void setBaja(boolean baja) {
         this.baja = baja;
+    }
+
+    /**
+     * @return the apellido
+     */
+    public String getApellido() {
+        return apellido;
+    }
+
+    /**
+     * @param apellido the apellido to set
+     */
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
     
     
