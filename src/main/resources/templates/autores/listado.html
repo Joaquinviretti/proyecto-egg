@@ -42,10 +42,10 @@
             </thead>
             <tbody>
               <tr th:each="autor : ${autores}">
-                <th scope="row" th:text="${#strings.abbreviate(autor.id,4)}"></th>
+                <th scope="row" th:text="${#strings.substring(autor.id,0,4)}">1</th>
                 <td th:text="${autor.nombre}"></td>
                 <td th:text="${autor.apellido}"></td>
-                <td><button class="btn btn-link">Modificar</button><button class="btn btn-link">Eliminar</button></td>
+                <td><button th:name="${autor.id}" class="btn btn-link">Modificar</button><button th:name="${autor.id}" class="btn btn-link">Eliminar</button></td>
               </tr>
             </tbody>
           </table>

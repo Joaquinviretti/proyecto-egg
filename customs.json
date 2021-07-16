@@ -10,6 +10,9 @@
         },
         "th:each": {
             "context": "td"
+        },
+        "th:name": {
+            "context": "button"
         }
     }
 }
