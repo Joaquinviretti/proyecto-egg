@@ -5,11 +5,20 @@
         "th:text": {
             "context": "h3"
         },
+        "th:if": {
+            "context": "div"
+        },
         "integrity": {
             "context": "link"
         },
+        "th:action": {
+            "context": "form"
+        },
         "th:each": {
             "context": "td"
+        },
+        "th:value": {
+            "context": "input"
         },
         "th:name": {
             "context": "button"
