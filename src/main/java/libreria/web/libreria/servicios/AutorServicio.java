@@ -15,13 +15,13 @@ public class AutorServicio {
     private AutorRepositorio autorRepositorio;
 
     /* Creación */
-    public void agregarAutor(String nombre) throws ErrorServicio {
+    public void agregarAutor(String nombre, String apellido) throws ErrorServicio {
 
-        if (nombre == null || nombre.isEmpty()) {
-            throw new ErrorServicio("El nombre no puede estar vacío");
+        if (nombre == null || nombre.isEmpty() || apellido == null || apellido.isEmpty()) {
+            throw new ErrorServicio("El nombre debe estar completo");
         } else {
             Autor autor = new Autor();
-            autor.setNombre(nombre);
+            autor.setNombre(nombre + " " + apellido);
 
             autorRepositorio.save(autor);
         }

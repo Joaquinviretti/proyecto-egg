@@ -25,14 +25,14 @@
         <li class="breadcrumb-item active" aria-current="page">Administración</li>
       </ol>
     </nav>
-    <form action="/autores/cargar" method="POST">
+    <form th:action="@{/autores/cargar}" method="POST">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="fname" name="nombre" class="form-control" id="nombre" required>
+        <input type="fname" name="nombre" class="form-control" th:value="${nombre}" id="nombre" required>
       </div>
       <div class="mb-3">
         <label for="apellido" class="form-label">Apellido</label>
-        <input type="lname" name="apellido" class="form-control" id="apellido" required>
+        <input type="lname" name="apellido" class="form-control" th:value="${apellido}" id="apellido" required>
       </div>
       <div>
         <button style="width: 90px;" type="submit" class="float-end btn btn-primary">Guardar</button>

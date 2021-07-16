@@ -5,6 +5,7 @@
  */
 package libreria.web.libreria.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,6 +24,7 @@ public class Autor {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
+    @Column(nullable = false, columnDefinition = "TINYINT(1)")
     private boolean baja;
 
     /**

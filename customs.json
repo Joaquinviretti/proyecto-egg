@@ -2,6 +2,9 @@
     "elements": {},
     "attributes": {
         "aria-current": {},
+        "th:text": {
+            "context": "h3"
+        },
         "integrity": {
             "context": "link"
         }
