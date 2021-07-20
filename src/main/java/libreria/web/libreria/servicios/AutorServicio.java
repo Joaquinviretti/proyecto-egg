@@ -41,6 +41,19 @@ public class AutorServicio {
         List<Autor> autores = autorRepositorio.buscarAutorPorNombre(nombre, apellido);
         return autores;
     }
+    
+     /* Consulta por apellido */
+    public List<Autor> buscarPorApellido(String apellido) {
+        List<Autor> autores = autorRepositorio.buscarAutorPorApellido(apellido);
+        return autores;
+    }
+    
+    /* Consulta por id */
+    public List<Autor> buscarPorId (String id) {
+        List<Autor> autores = autorRepositorio.buscarAutorPorId(id);
+        return autores;
+    }
+    
 
     /* Consultar todos */
     public List<Autor> listarTodos() {

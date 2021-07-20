@@ -11,6 +11,9 @@
         "integrity": {
             "context": "link"
         },
+        "for": {
+            "context": "input"
+        },
         "th:action": {
             "context": "form"
         },
