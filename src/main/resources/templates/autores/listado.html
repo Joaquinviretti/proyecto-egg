@@ -51,8 +51,8 @@
                             <td th:text="${autor.apellido}"></td>
                             <td>
                                 <form th:action="@{/autores/editar}" method="POST">
-                                    <button th:name="${autor.id}" class="btn btn-link">Modificar</button>
-                                    <button type="submit" th:name="eliminar" th:value="${autor.id}" class="btn btn-link">Eliminar</button>
+                                    <button type="submit" th:value="${autor.id}" th:name="modificar" class="btn btn-link">Modificar</button>
+                                    <button type="submit" th:value="${autor.id}" th:name="eliminar" class="btn btn-link">Eliminar</button>
                                 </form>
                             </td>
                         </tr>

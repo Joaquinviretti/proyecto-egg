@@ -41,19 +41,19 @@ public class AutorServicio {
         List<Autor> autores = autorRepositorio.buscarAutorPorNombre(nombre, apellido);
         return autores;
     }
-    
-     /* Consulta por apellido */
+
+    /* Consulta por apellido */
     public List<Autor> buscarPorApellido(String apellido) {
         List<Autor> autores = autorRepositorio.buscarAutorPorApellido(apellido);
         return autores;
     }
-    
+
     /* Consulta por id */
-    public Autor buscarPorId (String id) {
+    public Autor buscarPorId(String id) {
         Autor autor = autorRepositorio.buscarAutorPorId(id);
         return autor;
     }
-    
+
 
     /* Consultar todos */
     public List<Autor> listarTodos() {
@@ -62,20 +62,21 @@ public class AutorServicio {
     }
 
     /* Modificación */
-    public void modificarAutor(String id, String nombre) throws ErrorServicio {
+    @Transactional
+    public void modificar(String id, String nombre, String apellido) throws ErrorServicio {
 
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede estar vacío");
-        } else {
-            Optional<Autor> respuesta = autorRepositorio.findById(id);
-            if (respuesta.isPresent()) {
-                Autor autor = respuesta.get();
-                autor.setNombre(nombre);
-                autorRepositorio.save(autor);
-            }
         }
+
+        if (apellido == null || apellido.isEmpty()) {
+            throw new ErrorServicio("El apellido no puede estar vacío");
+        }
+
+        autorRepositorio.modificar(id, nombre, apellido);
+
     }
-    
+
     /* Dar de baja */
     @Transactional
     public void darBaja(String id) {
