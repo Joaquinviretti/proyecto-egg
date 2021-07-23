@@ -28,10 +28,13 @@
                 <form th:action="@{/autores/buscarAutor}" method="POST" class="d-flex w-100">
                     <input type="text" name="apellido" th:value="${apellido}" class="w-75 form-control" placeholder="Ingrese apellido del autor" aria-label="Ingrese apellido del autor"
                            aria-describedby="button-addon2" />
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                    <button class="btn btn-outline-secondary w-25" type="submit" id="button-addon2">
                         Buscar
                     </button>
                 </form>
+                <div th:if="${exito != null}" class="alert alert-success w-100 mt-4" role="alert">
+                    <p class="mb-0" th:text="${exito}"></p>
+                </div>
                 <table class="table table-striped table-hover mt-4">
                     <thead>
                         <tr>
@@ -46,7 +49,12 @@
                             <th scope="row" th:text="${#strings.substring(autor.id,0,4)}">1</th>
                             <td th:text="${autor.nombre}"></td>
                             <td th:text="${autor.apellido}"></td>
-                            <td><button th:name="${autor.id}" class="btn btn-link">Modificar</button><button th:name="${autor.id}" class="btn btn-link">Eliminar</button></td>
+                            <td>
+                                <form th:action="@{/autores/editar}" method="POST">
+                                    <button th:name="${autor.id}" class="btn btn-link">Modificar</button>
+                                    <button type="submit" th:name="eliminar" th:value="${autor.id}" class="btn btn-link">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -38,16 +38,30 @@ public class AutorController {
         modelo.put("cantidad", autores.size());
         return "autores/listado.html";
     }
+    
+    @PostMapping(value = "/editar", params = "eliminar")
+    public String eliminar(ModelMap modelo, @RequestParam String eliminar) {
+        Autor autorEliminado = autorServicio.buscarPorId(eliminar);
+        String mensaje = "El autor " + autorEliminado.getNombre() + " " +
+                autorEliminado.getApellido() + " se ha eliminado correctamente.";
+        
+        autorServicio.darBaja(eliminar);
+        List<Autor> autores = autorServicio.listarTodos();
+        modelo.put("autores", autores);
+        modelo.put("cantidad", autores.size());
+        modelo.put("exito", mensaje);
+        return "autores/listado.html";
+        
+    }
 
+    
     @PostMapping("/buscarAutor")
     public String buscarAutor(ModelMap modelo, @RequestParam String apellido) {
-
         List<Autor> autores = autorServicio.buscarPorApellido(apellido);
         modelo.put("autores", autores);
         modelo.put("apellido", apellido);
         modelo.put("cantidad", autores.size());
         return "autores/listado.html";
-
     }
 
     @PostMapping("/cargar")

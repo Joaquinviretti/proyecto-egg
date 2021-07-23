@@ -11,10 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
-/**
- *
- * @author Joaco
- */
+
 
 @Entity
 public class Autor {

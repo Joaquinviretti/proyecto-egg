@@ -49,9 +49,9 @@ public class AutorServicio {
     }
     
     /* Consulta por id */
-    public List<Autor> buscarPorId (String id) {
-        List<Autor> autores = autorRepositorio.buscarAutorPorId(id);
-        return autores;
+    public Autor buscarPorId (String id) {
+        Autor autor = autorRepositorio.buscarAutorPorId(id);
+        return autor;
     }
     
 
@@ -74,6 +74,12 @@ public class AutorServicio {
                 autorRepositorio.save(autor);
             }
         }
+    }
+    
+    /* Dar de baja */
+    @Transactional
+    public void darBaja(String id) {
+        autorRepositorio.darBaja(id);
     }
 
     /* Validación */
